@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: backend-livros
+  labels:
+    app: backend-livros
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: backend-livros
+  template:
+    metadata:
+      labels:
+        app: backend-livros
+    spec:
+      containers:
+      - name: backend-livros
+        image: seu-usuario/backend-livros:latest
+        ports:
+        - containerPort: 8000
